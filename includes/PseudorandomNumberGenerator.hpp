@@ -10,5 +10,5 @@ class PseudorandomNumberGenerator{
         std::uniform_real_distribution<double> distribution;
     public:
         PseudorandomNumberGenerator();
-        double generate(int min, int max);
+        int generate(int min, int max);
 };

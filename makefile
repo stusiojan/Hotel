@@ -1,25 +1,32 @@
 CC = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -Werror -pedantic -Iincludes
-LDFLAGS = -lc++abi
-
+CFLAGS = -Wall -Wextra -std=c++11
 SRC_DIR = src
 INCLUDE_DIR = includes
 BIN_DIR = bin
+TEST_DIR = tests
+INPUT_DIR = input
 
-SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
-OBJECTS = $(patsubst $(SRC_DIR)/%.cpp,$(BIN_DIR)/%.bin,$(SOURCES))
+SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
+OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp, $(BIN_DIR)/%.o, $(SRC_FILES))
+INC_FLAGS = -I$(INCLUDE_DIR)
 
-EXECUTABLE = $(BIN_DIR)/main.out
+EXECUTABLE = $(BIN_DIR)/hotel
 
-.PHONY: all clean
+.PHONY: all clean run test
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): $(OBJECTS)
-	$(CC) $(CXXFLAGS) $(LDFLAGS) $^ -o $@
+$(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CC) $(CFLAGS) $(INC_FLAGS) -c $< -o $@
 
-$(BIN_DIR)/%.bin: $(SRC_DIR)/%.cpp
-	$(CC) $(CXXFLAGS) -c $< -o $@
+$(EXECUTABLE): $(OBJ_FILES)
+	$(CC) $(CFLAGS) $(INC_FLAGS) $^ -o $@
 
 clean:
-	rm -f $(BIN_DIR)/*.bin $(EXECUTABLE)
+	rm -rf $(BIN_DIR)/*
+
+run: $(EXECUTABLE)
+	./$(EXECUTABLE)
+
+test: $(EXECUTABLE)
+	./$(EXECUTABLE) < $(INPUT_DIR)/test_input.txt

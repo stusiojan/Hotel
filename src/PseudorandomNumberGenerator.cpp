@@ -6,6 +6,6 @@ PseudorandomNumberGenerator::PseudorandomNumberGenerator(){
     distribution = std::uniform_real_distribution<double>(0, 1);
 }
 
-double PseudorandomNumberGenerator::generate(int min, int max){
+int PseudorandomNumberGenerator::generate(int min, int max){
     return distribution(generator) * (max - min) + min;
 }
