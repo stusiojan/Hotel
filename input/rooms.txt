@@ -1,0 +1,7 @@
+NumerPokoju LiczbaLozek Cena
+10  4   200
+11  4   200
+12  4   200
+13  2   150
+14  2   150
+15  6   300

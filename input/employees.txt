@@ -1,0 +1,6 @@
+Imie    Nazwisko    ID  Płaca   Stanowisko
+Jan Stusio  101 4500    Clerc
+Jan Kucharski   102 4500    Cook
+Anna    Kowalska    103 5000    Waiter
+Maria   Nowak   104 4700    Cleaner
+Mariusz Pudzianowski    105 9000    Cleaner
