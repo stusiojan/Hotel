@@ -6,10 +6,8 @@
 #include "Room.hpp"
 #include "Reservation.hpp"
 #include "Guest.hpp"
-#include "Employees/Cleaner.hpp"
-#include "Employees/Clerk.hpp"
-#include "Employees/Cook.hpp"
-#include "Employees/Waiter.hpp"
+#include "Clerk.hpp"
+
 
 class Hotel {
     private:
@@ -40,13 +38,13 @@ class Hotel {
         void addRoom(Room room);
         // void addReservation(Reservation reservation);
         void addGuest(Guest guest);
-        void addEmployee(Employee employee);
+        //void addEmployee(Employee employee);
         void addOccupiedRoom(Room room);
 
         void removeRoom(Room room);
         // void removeReservation(Reservation reservation);
         void removeGuest(Guest guest);
-        void removeEmployee(Employee employee);
+        //void removeEmployee(Employee employee);
         void removeOccupiedRoom(Room room);
 
         void checkIn(Guest guest, Room room);
